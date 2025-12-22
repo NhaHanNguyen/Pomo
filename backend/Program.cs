@@ -1,10 +1,25 @@
 var builder = WebApplication.CreateBuilder(args);
+using Newtonsoft.Json;
+
+var json = JsonConvert.SerializeObject(obj);
+var obj2 = JsonConvert.DeserializeObject<MyClass>(json);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReact",
+        policy => policy
+            .WithOrigins("http://localhost:3001")  // React server
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+app.UseCors("AllowReact");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
