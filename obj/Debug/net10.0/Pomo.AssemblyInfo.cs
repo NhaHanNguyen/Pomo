@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pomo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+559c508a2a06dfb21e9533da9e66c97c8233f39f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pomo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pomo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

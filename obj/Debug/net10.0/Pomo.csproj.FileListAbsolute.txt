@@ -12,3 +12,4 @@ C:\Users\Nha Han\Pomo\obj\Debug\net10.0\refint\Pomo.dll
 C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.pdb
 C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.genruntimeconfig.cache
 C:\Users\Nha Han\Pomo\obj\Debug\net10.0\ref\Pomo.dll
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.sourcelink.json
