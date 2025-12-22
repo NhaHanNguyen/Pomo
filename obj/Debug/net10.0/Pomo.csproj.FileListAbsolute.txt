@@ -1,0 +1,14 @@
+C:\Users\Nha Han\Pomo\bin\Debug\net10.0\Pomo.exe
+C:\Users\Nha Han\Pomo\bin\Debug\net10.0\Pomo.deps.json
+C:\Users\Nha Han\Pomo\bin\Debug\net10.0\Pomo.runtimeconfig.json
+C:\Users\Nha Han\Pomo\bin\Debug\net10.0\Pomo.dll
+C:\Users\Nha Han\Pomo\bin\Debug\net10.0\Pomo.pdb
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.AssemblyInfoInputs.cache
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.AssemblyInfo.cs
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.csproj.CoreCompileInputs.cache
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.dll
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\refint\Pomo.dll
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.pdb
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\Pomo.genruntimeconfig.cache
+C:\Users\Nha Han\Pomo\obj\Debug\net10.0\ref\Pomo.dll
