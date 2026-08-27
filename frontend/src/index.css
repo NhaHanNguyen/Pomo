@@ -1,13 +1,185 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import 'tailwindcss';
+
+/*
+  Pomo design tokens.
+
+  The palette is sampled from the isometric city reference in the Figma file —
+  terracotta roofs, sage trees, sky blues, warm sand pavement — so the timer
+  chrome and the city art read as one world.
+*/
+@theme {
+  /* Surfaces, warm rather than neutral grey */
+  --color-canvas: #faf6f0;
+  --color-surface: #fffdf9;
+  --color-surface-sunk: #f3ece2;
+  --color-hairline: #e6dccd;
+
+  /* Text */
+  --color-ink: #3d3a36;
+  --color-ink-soft: #6f675c;
+  --color-ink-faint: #a39887;
+
+  /* City-derived accents */
+  --color-terracotta: #e07a5f;
+  --color-terracotta-deep: #c25a3f;
+  --color-sage: #81b29a;
+  --color-sage-deep: #5e8f77;
+  --color-sky: #7fb8d9;
+  --color-sky-soft: #cfe6f2;
+  --color-sand: #f2cc8f;
+  --color-plaster: #f6efe4;
+
+  /* Semantic */
+  --color-danger: #e4572e;
+  --color-coin: #f0b429;
+
+  --font-display: 'Oswald', 'Helvetica Neue', sans-serif;
+  --font-sans: 'Baloo 2', ui-rounded, system-ui, sans-serif;
+
+  --radius-card: 1.5rem;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 2px 4px rgb(61 58 54 / 0.04), 0 8px 24px rgb(61 58 54 / 0.06);
+  --shadow-lift: 0 4px 8px rgb(61 58 54 / 0.06), 0 16px 40px rgb(61 58 54 / 0.1);
+  --shadow-pop: 0 8px 16px rgb(61 58 54 / 0.08), 0 32px 64px rgb(61 58 54 / 0.16);
+
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular, condensed numerals for the clock so digits don't jitter as they tick. */
+.tnum {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Range inputs, restyled to match the soft chrome. */
+input[type='range'] {
+  appearance: none;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-hairline);
+  outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-sage-deep);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 120ms var(--ease-bounce);
+}
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-sage-deep);
+  cursor: pointer;
+}
+
+@keyframes pomo-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-40px);
+  }
+}
+
+@keyframes pomo-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pomo-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pomo-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-28px) scale(1);
+  }
+}
+
+/* Coin earned this minute, drifting up toward the balance in the HUD. */
+@keyframes pomo-coin-float {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.7);
+  }
+  18% {
+    opacity: 1;
+    transform: translateY(0) scale(1.06);
+  }
+  30% {
+    transform: translateY(-8px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-132px) scale(0.85);
+  }
+}
+
+.animate-coin-float {
+  animation: pomo-coin-float 1800ms cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+.animate-pop-in {
+  animation: pomo-pop-in 260ms var(--ease-bounce) both;
+}
+.animate-fade-in {
+  animation: pomo-fade-in 180ms ease-out both;
+}
+.animate-rise {
+  animation: pomo-rise 1100ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
